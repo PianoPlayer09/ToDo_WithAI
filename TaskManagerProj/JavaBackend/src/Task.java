@@ -42,44 +42,23 @@ JSONObject toJSON() {
 
 
 
-class TaskManager{
-    private final List<Task> tasks = new ArrayList<>();
+// class TaskManager{
+//     private final List<Task> tasks = new ArrayList<>();
 
-    public void addTask(String name){
-        tasks.add(new Task(name));
-    }
-    public void addTask(String name, Date date){
-        tasks.add(new Task(name,date));
-    }
+//     public void addTask(String name){
+//         tasks.add(new Task(name));
+//     }
+//     public void addTask(String name, Date date){
+//         tasks.add(new Task(name,date));
+//     }
 
-    JSONArray getTasks() {
-        JSONArray arr = new JSONArray();
-        for (Task task : tasks) {
-            arr.put(task.toJSON());
-        }
-        return arr;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//     JSONArray getTasks() {
+//         JSONArray arr = new JSONArray();
+//         for (Task task : tasks) {
+//             arr.put(task.toJSON());
+//         }
+//         return arr;
+//   
 
 
 
@@ -114,28 +93,3 @@ class TaskManager{
 }
 
 
-
-
-
-class Date{
-    int day;
-    int month;
-    int year;
-
-    public Date(int day, int month, int year) {
-        this.day = day;
-        this.month = month;
-        this.year = year;
-    }
-
-    public static Date fromString(String dateStr) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yy");
-        LocalDate localDate = LocalDate.parse(dateStr, formatter);
-        return new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
-    }
-
-    @Override
-    public String toString() {
-        return month + "/" + day + "/" + year;
-    }
-}
