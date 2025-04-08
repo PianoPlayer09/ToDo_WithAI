@@ -1,3 +1,4 @@
+package TaskManagerProj.JavaBackend.src;
 import com.sun.net.httpserver.HttpServer;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
@@ -6,12 +7,10 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.json.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-package TaskManagerProj.JavaBackend.src;
 
 public class Task {
     String name;
@@ -39,7 +38,27 @@ JSONObject toJSON() {
     return obj;
 }
 
+public class Date{
+    int month;
+    int day;
+    int year;
+    public Date(int month, int day, int year){
+        this.day = day;
+        this.month = month;
+        this.year = year;
+    }
+    public int getMonth() {
+        return month;
+    }
 
+    public int getDay() {
+        return day;
+    }
+
+    public int getYear() {
+        return year;
+    }
+}
 
 
 // class TaskManager{
